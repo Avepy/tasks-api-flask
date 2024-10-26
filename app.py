@@ -1,8 +1,9 @@
+from os import path as os_path, makedirs
 from flask import Flask, url_for
 from extensions import db, migrate
 from flask_apispec import FlaskApiSpec
 from flask_swagger_ui import get_swaggerui_blueprint
-from config import Config
+from config import Config, BASE_DIR
 from resources.task_resource import TaskResource, TaskDetailResource, TaskReportResource
 from resources.user_resource import UserResource, UserDetailResource
 
@@ -10,6 +11,10 @@ from resources.user_resource import UserResource, UserDetailResource
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    db_dir = os_path.join(BASE_DIR, 'db')
+    if not os_path.exists(db_dir):
+        makedirs(db_dir)
 
     # Database
     db.init_app(app)
