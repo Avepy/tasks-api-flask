@@ -239,6 +239,8 @@ def generate_task_time_spent_pdf():
         ctx.drawString(50, y, f"Title: {task.title}")
         y -= 15
         ctx.drawString(50, y, f"Time Spent: {format_time_spent(task.time_spent)}")
+        y -= 15
+        ctx.drawString(50, y , f"User ID: {task.user_id}")
         y -= 30
 
         if y < 50:

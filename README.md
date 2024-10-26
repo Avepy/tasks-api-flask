@@ -30,6 +30,13 @@ git clone git@github.com:Avepy/tasks-api-flask.git
 pip install -r requirements.txt
 ```
 
+3. Perform the database migrations
+```bash
+flask db init
+flask db migrate -m "Initial migration"
+flask db upgrade
+```
+
 3. Run the application
 ```bash
 python app.py

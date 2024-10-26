@@ -3,6 +3,7 @@ from sqlalchemy import Enum as SQLAlchemyEnum, func
 from extensions import db
 from enums.task_status import TaskStatus
 
+
 class Task(db.Model):
     __tablename__ = "tasks"
     id = db.Column(db.Integer, primary_key=True)
