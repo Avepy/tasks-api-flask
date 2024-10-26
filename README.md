@@ -37,7 +37,7 @@ flask db migrate -m "Initial migration"
 flask db upgrade
 ```
 
-3. Run the application
+4. Run the application
 ```bash
 python app.py
 ```
