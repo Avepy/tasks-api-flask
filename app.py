@@ -12,6 +12,9 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
+    if not os_path.exists(os_path.join(BASE_DIR, "db")):
+        makedirs(os_path.join(BASE_DIR, "db"))
+
     # Database
     db.init_app(app)
     migrate.init_app(app, db)
